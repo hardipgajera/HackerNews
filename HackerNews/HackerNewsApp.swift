@@ -2,7 +2,7 @@
 //  HackerNewsApp.swift
 //  HackerNews
 //
-//  Created by xrstudio on 03/07/21.
+//  Created by hardip gajera on 03/07/21.
 //
 
 import SwiftUI
@@ -11,7 +11,7 @@ import SwiftUI
 struct HackerNewsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

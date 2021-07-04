@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1091D8AE269196DF00A06BA5 /* HomeViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1091D8AD269196DF00A06BA5 /* HomeViewModal.swift */; };
 		C1506F9026901A520057348B /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1506F8F26901A520057348B /* HackerNewsApp.swift */; };
-		C1506F9226901A520057348B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1506F9126901A520057348B /* ContentView.swift */; };
+		C1506F9226901A520057348B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1506F9126901A520057348B /* HomeView.swift */; };
 		C1506F9426901A550057348B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1506F9326901A550057348B /* Assets.xcassets */; };
 		C1506F9726901A550057348B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1506F9626901A550057348B /* Preview Assets.xcassets */; };
 		C1506FA226901A550057348B /* HackerNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1506FA126901A550057348B /* HackerNewsTests.swift */; };
@@ -37,9 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1091D8AD269196DF00A06BA5 /* HomeViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModal.swift; sourceTree = "<group>"; };
 		C1506F8C26901A520057348B /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1506F8F26901A520057348B /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
-		C1506F9126901A520057348B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C1506F9126901A520057348B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C1506F9326901A550057348B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1506F9626901A550057348B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C1506F9826901A550057348B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1091D8A62691957400A06BA5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1506F9126901A520057348B /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C1506F8326901A510057348B = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +119,7 @@
 				C1506FC726901AE40057348B /* ViewModal */,
 				C1506FC626901ADF0057348B /* Modal */,
 				C1506FBD26901A990057348B /* Utility */,
-				C1506F9126901A520057348B /* ContentView.swift */,
+				1091D8A62691957400A06BA5 /* Views */,
 				C1506F9326901A550057348B /* Assets.xcassets */,
 				C1506F9826901A550057348B /* Info.plist */,
 				C1506F9526901A550057348B /* Preview Content */,
@@ -162,6 +172,7 @@
 		C1506FC726901AE40057348B /* ViewModal */ = {
 			isa = PBXGroup;
 			children = (
+				1091D8AD269196DF00A06BA5 /* HomeViewModal.swift */,
 			);
 			path = ViewModal;
 			sourceTree = "<group>";
@@ -303,8 +314,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1091D8AE269196DF00A06BA5 /* HomeViewModal.swift in Sources */,
 				C1506FCD26901CFC0057348B /* NewsStore.swift in Sources */,
-				C1506F9226901A520057348B /* ContentView.swift in Sources */,
+				C1506F9226901A520057348B /* HomeView.swift in Sources */,
 				C1506FDA26901ED90057348B /* NewsModal.swift in Sources */,
 				C1506FD526901D6C0057348B /* Constant.swift in Sources */,
 				C1506FBF26901AAE0057348B /* HTTPUtility.swift in Sources */,
