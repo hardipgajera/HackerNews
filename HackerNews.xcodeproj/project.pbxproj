@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1077D5142691D94F00E02BF5 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1077D5132691D94F00E02BF5 /* DetailView.swift */; };
 		1091D8AE269196DF00A06BA5 /* HomeViewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1091D8AD269196DF00A06BA5 /* HomeViewModal.swift */; };
 		C1506F9026901A520057348B /* HackerNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1506F8F26901A520057348B /* HackerNewsApp.swift */; };
 		C1506F9226901A520057348B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1506F9126901A520057348B /* HomeView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1077D5132691D94F00E02BF5 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		1091D8AD269196DF00A06BA5 /* HomeViewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModal.swift; sourceTree = "<group>"; };
 		C1506F8C26901A520057348B /* HackerNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackerNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1506F8F26901A520057348B /* HackerNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackerNewsApp.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				C1506F9126901A520057348B /* HomeView.swift */,
+				1077D5132691D94F00E02BF5 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1091D8AE269196DF00A06BA5 /* HomeViewModal.swift in Sources */,
+				1077D5142691D94F00E02BF5 /* DetailView.swift in Sources */,
 				C1506FCD26901CFC0057348B /* NewsStore.swift in Sources */,
 				C1506F9226901A520057348B /* HomeView.swift in Sources */,
 				C1506FDA26901ED90057348B /* NewsModal.swift in Sources */,

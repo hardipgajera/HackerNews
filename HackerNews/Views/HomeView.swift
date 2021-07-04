@@ -14,11 +14,13 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             List(viewModal.newsArray.indices,id: \.self) { index in
-                Text("\(viewModal.newsArray[index].title ?? "")")
-                    .padding()
-                    .onAppear {
-                        self.loadNewsIfNeeded(index)
-                    }
+                NavigationLink(destination: DetailView(viewModal.newsArray[index])) {
+                    Text("\(viewModal.newsArray[index].title ?? "")")
+                        .padding()
+                        .onAppear {
+                            self.loadNewsIfNeeded(index)
+                        }
+                }
             }
             .navigationBarTitle("HackerNews")
         }
