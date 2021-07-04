@@ -7,7 +7,12 @@
 
 import Foundation
 
-class NewsStore {
+protocol NewsStoreHandler {
+    func getTopStories(_ completionHandler: @escaping ([Int]) -> ())
+    func getStoriesFromID(_ id: String, completionHandler: @escaping ((NewsModal) -> () ))
+}
+
+class NewsStore: NewsStoreHandler {
     
     static let shared = NewsStore()
     private init() {}

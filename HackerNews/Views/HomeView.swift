@@ -13,11 +13,22 @@ struct HomeView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                Text("Hello, world!")
+            List(viewModal.newsArray.indices,id: \.self) { index in
+                Text("\(viewModal.newsArray[index].title ?? "")")
                     .padding()
+                    .onAppear {
+                        self.loadNewsIfNeeded(index)
+                    }
             }
             .navigationBarTitle("HackerNews")
+        }
+    }
+    
+    func loadNewsIfNeeded(_ onIndex:Int) {
+        if onIndex > (viewModal.newsArray.count - 4) {
+            if !viewModal.isPageLoading {
+                viewModal.fetchNews()
+            }
         }
     }
 }

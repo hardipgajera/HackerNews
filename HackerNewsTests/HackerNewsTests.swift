@@ -56,4 +56,7 @@ class HackerNewsTests: XCTestCase {
         XCTAssertNotNil(newsModal)
     }
     
+    //MARK: To check we can get all data from HomeViewModal
+    func
+    
 }
