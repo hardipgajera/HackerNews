@@ -18,7 +18,7 @@ class HomeViewModal: ObservableObject {
     }
     private var isListFull = false
     private var currentPage = 0
-    private let perPage = 10
+    private let perPage = 20
     
     var isPageLoading = false
     

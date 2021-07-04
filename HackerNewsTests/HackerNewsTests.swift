@@ -57,6 +57,6 @@ class HackerNewsTests: XCTestCase {
     }
     
     //MARK: To check we can get all data from HomeViewModal
-    func
+//    func
     
 }
