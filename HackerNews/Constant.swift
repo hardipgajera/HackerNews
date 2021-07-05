@@ -10,9 +10,9 @@ import Foundation
 struct Constant {
     
     struct Url { 
-        static let baseURL: String = "https://hacker-news.firebaseio.com/v0/"
-        static let topStories: String = "\(baseURL)topstories.json"
-        static let item: String = "\(baseURL)item/"
+        static let baseURL: URL = URL(string: "https://hacker-news.firebaseio.com/v0/")!
+        static let topStories: URL = URL(string: "\(baseURL)topstories.json")!
+        static let item: URL = URL(string: "\(baseURL)item/")!
     } 
     
     

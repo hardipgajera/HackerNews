@@ -11,7 +11,7 @@ import Foundation
 
 /// all feilds are optional because we miss any feild  in some id 
 // MARK: - NewsModal
-struct NewsModal: Codable,Hashable {
+struct NewsModal: Codable {
     let by: String?
     let descendants, id: Int?
     let kids: [Int]?

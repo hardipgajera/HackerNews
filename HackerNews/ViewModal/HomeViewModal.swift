@@ -40,26 +40,30 @@ class HomeViewModal: ObservableObject {
             paginationModal.isListFull = true
         }
         for (id,element) in newsRange.enumerated() {
-            DispatchQueue.global(qos: .background).async { [weak self] in
-                self?.newsStore.getStoriesFromID(element, completionHandler: { (newsModal) in
+            self.newsStore.getStoryFromID(element, completionHandler: { (newsModal)  in
+                if let newsModal = newsModal {
                     DispatchQueue.main.async {
-                        self?.newsArray.append(newsModal)
-                        if id  == newsRange.count - 1 { self?.paginationModal.isPageLoading = false }
+                        self.newsArray.append(newsModal)
+                        if id  == newsRange.count - 1 { self.paginationModal.isPageLoading = false }
                     }
-                })
-            }
+                }
+            })
         }
         paginationModal.currentPage += paginationModal.perPage
     }
     
     private func fetchTopStoriesID() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.newsStore.getTopStories({ (ids) in
+        self.newsStore.getTopStories({ (ids,error) in
+            if error != nil {
+                return
+            }
+            if let ids = ids {
                 DispatchQueue.main.async {
-                    self?.newsIDs = ids
+                    self.newsIDs = ids
                 }
-            })
-        }
+                return
+            }
+        })
     }
     
 }

@@ -13,7 +13,7 @@ class HackerNewsTests: XCTestCase {
     
     //MARK: For test api working properly
     func testGetAPI() {
-        let url = URL(string: Constant.Url.item + "8863.json")!
+        let url = Constant.Url.item.appendingPathComponent("8863.json")
         let httpUtility = HTTPUtility.shared
         var isValidData: Bool = false
         let expectation = self.expectation(description: "Get_Api_Testing")
@@ -48,7 +48,7 @@ class HackerNewsTests: XCTestCase {
         let newsStore = NewsStore()
         var newsModal: NewsModal? = nil
         let expectation = self.expectation(description: "newsModal_Testing")
-        newsStore.getStoriesFromID(8863) { (responseNewsModal) in
+        newsStore.getStoryFromID(8863) { (responseNewsModal) in
             newsModal = responseNewsModal
             expectation.fulfill()
         }
