@@ -32,7 +32,7 @@ class HackerNewsTests: XCTestCase {
     
     //MARK: For test Top stories getting properly
     func testTopStoriesAPI() {
-        let newsStore = NewsStore.shared
+        let newsStore = NewsStore()
         var ids: [String] = []
         let expectation = self.expectation(description: "Top_Stories_Testing")
         newsStore.getTopStories { (id) in
@@ -45,10 +45,10 @@ class HackerNewsTests: XCTestCase {
  
     //MARK: For test Get NewsPost Working properly
     func testGetNewsPost() {
-        let newsStore = NewsStore.shared
+        let newsStore = NewsStore()
         var newsModal: NewsModal? = nil
         let expectation = self.expectation(description: "newsModal_Testing")
-        newsStore.getStoriesFromID("8863") { (responseNewsModal) in
+        newsStore.getStoriesFromID(8863) { (responseNewsModal) in
             newsModal = responseNewsModal
             expectation.fulfill()
         }

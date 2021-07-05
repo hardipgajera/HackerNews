@@ -14,8 +14,7 @@ protocol NewsStoreHandler {
 
 class NewsStore: NewsStoreHandler {
     
-    static let shared = NewsStore()
-    private init() {}
+    init() {}
     
     func getTopStories(_ completionHandler: @escaping ([Int]) -> ()) {
         let url = URL(string: Constant.Url.topStories)!

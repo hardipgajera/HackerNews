@@ -10,7 +10,7 @@ import Foundation
 class HomeViewModal: ObservableObject {
     
     @Published var newsArray : [NewsModal] = []
-    private var newsStore : NewsStoreHandler?
+    private var newsStore : NewsStoreHandler = NewsStore()
     private var newsIDs: [Int] = [] {
         didSet {
             fetchNews()
@@ -22,8 +22,7 @@ class HomeViewModal: ObservableObject {
     
     var isPageLoading = false
     
-    init(_ newsStoreHandler: NewsStoreHandler? = NewsStore.shared) {
-        self.newsStore = newsStoreHandler
+    init() {
         fetchTopStoriesID()
     }
     
@@ -39,7 +38,7 @@ class HomeViewModal: ObservableObject {
         }
         for (id,element) in newsRange.enumerated() {
             DispatchQueue.global(qos: .background).async { [weak self] in
-                self?.newsStore?.getStoriesFromID(element, completionHandler: { (newsModal) in
+                self?.newsStore.getStoriesFromID(element, completionHandler: { (newsModal) in
                     DispatchQueue.main.async {
                         self?.newsArray.append(newsModal)
                         if id  == newsRange.count - 1 { self?.isPageLoading = false }
@@ -52,7 +51,7 @@ class HomeViewModal: ObservableObject {
     
     private func fetchTopStoriesID() {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            self?.newsStore?.getTopStories({ (ids) in
+            self?.newsStore.getTopStories({ (ids) in
                 DispatchQueue.main.async {
                     self?.newsIDs = ids
                 }
