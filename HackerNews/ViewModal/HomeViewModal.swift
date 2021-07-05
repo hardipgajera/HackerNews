@@ -7,6 +7,13 @@
 
 import Foundation
 
+struct PaginationModal {
+    var isListFull = false
+    var currentPage = 0
+    let perPage = 20
+    var isPageLoading = false
+}
+
 class HomeViewModal: ObservableObject {
     
     @Published var newsArray : [NewsModal] = []
@@ -16,37 +23,33 @@ class HomeViewModal: ObservableObject {
             fetchNews()
         }
     }
-    private var isListFull = false
-    private var currentPage = 0
-    private let perPage = 20
-    
-    var isPageLoading = false
+    var paginationModal = PaginationModal()
     
     init() {
         fetchTopStoriesID()
     }
     
     func fetchNews() {
-        guard !isListFull else { return }
-        isPageLoading = true
+        guard !paginationModal.isListFull else { return }
+        paginationModal.isPageLoading = true
         var newsRange : [Int] = []
-        if (currentPage + perPage) < newsIDs.count {
-            newsRange = Array(newsIDs[currentPage...currentPage + perPage])
+        if (paginationModal.currentPage + paginationModal.perPage) < newsIDs.count {
+            newsRange = Array(newsIDs[paginationModal.currentPage...paginationModal.currentPage + paginationModal.perPage])
         } else {
-            newsRange = Array(newsIDs[currentPage...newsIDs.count - 1])
-            isListFull = true
+            newsRange = Array(newsIDs[paginationModal.currentPage...newsIDs.count - 1])
+            paginationModal.isListFull = true
         }
         for (id,element) in newsRange.enumerated() {
             DispatchQueue.global(qos: .background).async { [weak self] in
                 self?.newsStore.getStoriesFromID(element, completionHandler: { (newsModal) in
                     DispatchQueue.main.async {
                         self?.newsArray.append(newsModal)
-                        if id  == newsRange.count - 1 { self?.isPageLoading = false }
+                        if id  == newsRange.count - 1 { self?.paginationModal.isPageLoading = false }
                     }
                 })
             }
         }
-        currentPage += perPage
+        paginationModal.currentPage += paginationModal.perPage
     }
     
     private func fetchTopStoriesID() {

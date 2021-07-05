@@ -28,7 +28,7 @@ struct HomeView: View {
     
     func loadNewsIfNeeded(_ onIndex:Int) {
         if onIndex > (viewModal.newsArray.count - 4) {
-            if !viewModal.isPageLoading {
+            if !viewModal.paginationModal.isPageLoading {
                 viewModal.fetchNews()
             }
         }
