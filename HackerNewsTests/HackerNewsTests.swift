@@ -35,14 +35,17 @@ class HackerNewsTests: XCTestCase {
         let newsStore = NewsStore()
         var ids: [String] = []
         let expectation = self.expectation(description: "Top_Stories_Testing")
-        newsStore.getTopStories { (id) in
-            ids = id.map { String($0) }
+        newsStore.getTopStories { (id,error)  in
+            if error != nil { return }
+            if let id = id {
+                ids = id.map { String($0) }
+            }
             expectation.fulfill()
         }
         waitForExpectations(timeout: 5.0, handler: nil)
         XCTAssertTrue(ids.count != 0)
     }
- 
+    
     //MARK: For test Get NewsPost Working properly
     func testGetNewsPost() {
         let newsStore = NewsStore()
