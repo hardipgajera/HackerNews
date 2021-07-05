@@ -11,7 +11,7 @@ class HomeViewModal: ObservableObject {
     
     @Published var newsArray : [NewsModal] = []
     private var newsStore : NewsStoreHandler?
-    private var newsIDs: [String] = [] {
+    private var newsIDs: [Int] = [] {
         didSet {
             fetchNews()
         }
@@ -30,7 +30,7 @@ class HomeViewModal: ObservableObject {
     func fetchNews() {
         guard !isListFull else { return }
         isPageLoading = true
-        var newsRange : [String] = []
+        var newsRange : [Int] = []
         if (currentPage + perPage) < newsIDs.count {
             newsRange = Array(newsIDs[currentPage...currentPage + perPage])
         } else {
@@ -54,7 +54,7 @@ class HomeViewModal: ObservableObject {
         DispatchQueue.global(qos: .background).async { [weak self] in
             self?.newsStore?.getTopStories({ (ids) in
                 DispatchQueue.main.async {
-                    self?.newsIDs = ids.map { String($0) }
+                    self?.newsIDs = ids
                 }
             })
         }

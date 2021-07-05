@@ -9,7 +9,7 @@ import Foundation
 
 protocol NewsStoreHandler {
     func getTopStories(_ completionHandler: @escaping ([Int]) -> ())
-    func getStoriesFromID(_ id: String, completionHandler: @escaping ((NewsModal) -> () ))
+    func getStoriesFromID(_ id: Int, completionHandler: @escaping ((NewsModal) -> () ))
 }
 
 class NewsStore: NewsStoreHandler {
@@ -31,7 +31,7 @@ class NewsStore: NewsStoreHandler {
         }
     }
     
-    func getStoriesFromID(_ id: String, completionHandler: @escaping ((NewsModal) -> () )) {
+    func getStoriesFromID(_ id: Int, completionHandler: @escaping ((NewsModal) -> () )) {
         let url = URL(string: Constant.Url.item + "\(id).json")!
         let httpUtility = HTTPUtility.shared
         httpUtility.getData(url: url, resultType: NewsModal.self) { (result) in
